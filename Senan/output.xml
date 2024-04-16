@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20240319 17:11:44.481" rpa="false" schemaversion="4">
+<suite id="s1" name="AddForms" source="C:\robot\Senan\Testcase\AddForms.robot">
+<kw name="Open a Browser" library="Keywords_AddUser" type="SETUP">
+<arg>${SiteUrl}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${SiteUrl}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240319 17:11:44.814" level="INFO">Opening browser 'chrome' to base url 'https://staging-senan.mugna.tech/cca-admin/'.</msg>
+<status status="PASS" starttime="20240319 17:11:44.814" endtime="20240319 17:11:47.689"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240319 17:11:47.690" endtime="20240319 17:11:47.868"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:44.814" endtime="20240319 17:11:47.868"/>
+</kw>
+<test id="s1-t1" name="Login and Access users Page" line="40">
+<kw name="Login an Admin" library="Keywords_AddUser">
+<arg>${valid_userEmail}</arg>
+<arg>${valid_userPassword}</arg>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${txt_Email}</arg>
+<arg>${userEmail}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:47.873" level="INFO">Typing text 'admin@mugna.tech' into text field 'name:username'.</msg>
+<status status="PASS" starttime="20240319 17:11:47.871" endtime="20240319 17:11:48.019"/>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<arg>${txt_Password}</arg>
+<arg>${userPassword}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:48.019" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg timestamp="20240319 17:11:48.065" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20240319 17:11:48.121" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20240319 17:11:48.019" endtime="20240319 17:11:48.121"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>${btn_login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:48.132" level="INFO">Clicking button 'xpath://*[@id="login-form"]/div[3]/input'.</msg>
+<status status="PASS" starttime="20240319 17:11:48.131" endtime="20240319 17:11:49.176"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:11:52.177" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240319 17:11:49.176" endtime="20240319 17:11:52.177"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:47.870" endtime="20240319 17:11:52.177"/>
+</kw>
+<doc>Logs in as an admin user</doc>
+<status status="PASS" starttime="20240319 17:11:47.868" endtime="20240319 17:11:52.177"/>
+</test>
+<test id="s1-t2" name="Open Compliance Criticality Assessment" line="44">
+<kw name="Open Compliance" library="Keywords_AddForm">
+<kw name="Click Link" library="Selenium2Library">
+<arg>${link_Compliance}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:52.177" level="INFO">Clicking link 'xpath://*[@id="content-main"]/div[2]/table/tbody/tr[1]/th/a'.</msg>
+<status status="PASS" starttime="20240319 17:11:52.177" endtime="20240319 17:11:53.178"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:11:54.179" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:11:53.178" endtime="20240319 17:11:54.179"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:52.177" endtime="20240319 17:11:54.179"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:11:55.180" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:11:54.179" endtime="20240319 17:11:55.180"/>
+</kw>
+<doc>Redirect user to Compliane Criticality Assessment Page</doc>
+<status status="PASS" starttime="20240319 17:11:52.177" endtime="20240319 17:11:55.180"/>
+</test>
+<test id="s1-t3" name="Execute Create CCA Form # Times" line="49">
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>${number_of_forms}</value>
+<iter>
+<var name="${index}">0</var>
+<kw name="Create CCA Form">
+<kw name="Click Add Compliance Criticality" library="Keywords_AddForm">
+<kw name="Click Link" library="Selenium2Library">
+<arg>${btn_Add_CCAForm}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:55.180" level="INFO">Clicking link 'xpath:/html/body/div/div[2]/div/div[1]/div/ul/li[1]/a'.</msg>
+<status status="PASS" starttime="20240319 17:11:55.180" endtime="20240319 17:11:55.797"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:11:56.799" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:11:55.798" endtime="20240319 17:11:56.799"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:55.180" endtime="20240319 17:11:56.799"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:11:59.799" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240319 17:11:56.799" endtime="20240319 17:11:59.799"/>
+</kw>
+<kw name="Add Compliance Criticality Information" library="Keywords_AddForm">
+<arg>${Compliance_Form_Company}</arg>
+<arg>${Compliance_Form_BusinessOwner}</arg>
+<arg>${Compliace_Form_SystemOwner}</arg>
+<arg>${Compliance_Form_ItRisk}</arg>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${dropDown_Compliance_Company}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:59.799" level="INFO">Clicking element 'xpath://*[@id="compliancecriticalityassessment_form"]/div/fieldset[1]/div/div/div/div/span/span[1]/span'.</msg>
+<status status="PASS" starttime="20240319 17:11:59.799" endtime="20240319 17:11:59.864"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_company-results"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240319 17:11:59.864" endtime="20240319 17:11:59.895"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath:/html/body/span/span/span[1]/input</arg>
+<arg>${Compliance_Company}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:11:59.895" level="INFO">Typing text 'Jaze Company' into text field 'xpath:/html/body/span/span/span[1]/input'.</msg>
+<status status="PASS" starttime="20240319 17:11:59.895" endtime="20240319 17:12:00.032"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:01.033" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:00.032" endtime="20240319 17:12:01.033"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_company-results"]/li</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:01.033" level="INFO">Clicking element 'xpath://*[@id="select2-id_company-results"]/li'.</msg>
+<status status="PASS" starttime="20240319 17:12:01.033" endtime="20240319 17:12:01.097"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:02.098" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:01.097" endtime="20240319 17:12:02.098"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${dropDown_BusinessOwner}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:02.098" level="INFO">Clicking element 'xpath://*[@id="compliancecriticalityassessment_form"]/div/fieldset[2]/div[1]/div/div/div/span/span[1]/span'.</msg>
+<status status="PASS" starttime="20240319 17:12:02.098" endtime="20240319 17:12:02.155"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_business_owner-results"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240319 17:12:02.155" endtime="20240319 17:12:02.188"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath:/html/body/span/span/span[1]/input</arg>
+<arg>${Compliance_BusinessOwner}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:02.188" level="INFO">Typing text 'shing_test Automation1' into text field 'xpath:/html/body/span/span/span[1]/input'.</msg>
+<status status="PASS" starttime="20240319 17:12:02.188" endtime="20240319 17:12:02.340"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:03.341" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:02.340" endtime="20240319 17:12:03.341"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_business_owner-results"]/li</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:03.341" level="INFO">Clicking element 'xpath://*[@id="select2-id_business_owner-results"]/li'.</msg>
+<status status="PASS" starttime="20240319 17:12:03.341" endtime="20240319 17:12:03.405"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:04.405" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:03.405" endtime="20240319 17:12:04.405"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${dropDown_SystemOwner}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:04.405" level="INFO">Clicking element 'xpath://*[@id="compliancecriticalityassessment_form"]/div/fieldset[2]/div[2]/div/div/div/span/span[1]/span'.</msg>
+<status status="PASS" starttime="20240319 17:12:04.405" endtime="20240319 17:12:04.462"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_system_owner-results"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240319 17:12:04.462" endtime="20240319 17:12:04.478"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath:/html/body/span/span/span[1]/input</arg>
+<arg>${Compliance_SystemOwner}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:04.478" level="INFO">Typing text 'shing_test Automation2' into text field 'xpath:/html/body/span/span/span[1]/input'.</msg>
+<status status="PASS" starttime="20240319 17:12:04.478" endtime="20240319 17:12:04.628"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:05.629" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:04.628" endtime="20240319 17:12:05.629"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_system_owner-results"]/li</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:05.629" level="INFO">Clicking element 'xpath://*[@id="select2-id_system_owner-results"]/li'.</msg>
+<status status="PASS" starttime="20240319 17:12:05.629" endtime="20240319 17:12:05.686"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:06.687" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:05.686" endtime="20240319 17:12:06.687"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${dropDown_ItRisk}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:06.687" level="INFO">Clicking element 'xpath://*[@id="compliancecriticalityassessment_form"]/div/fieldset[2]/div[3]/div/div/div/span/span[1]/span'.</msg>
+<status status="PASS" starttime="20240319 17:12:06.687" endtime="20240319 17:12:06.744"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_it_risk_management_and_compliance-results"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240319 17:12:06.744" endtime="20240319 17:12:06.772"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath:/html/body/span/span/span[1]/input</arg>
+<arg>${Compliance_ItRisk}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:06.773" level="INFO">Typing text 'shing_test Automation3' into text field 'xpath:/html/body/span/span/span[1]/input'.</msg>
+<status status="PASS" starttime="20240319 17:12:06.772" endtime="20240319 17:12:06.911"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:07.912" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240319 17:12:06.911" endtime="20240319 17:12:07.912"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath://*[@id="select2-id_it_risk_management_and_compliance-results"]/li</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:07.912" level="INFO">Clicking element 'xpath://*[@id="select2-id_it_risk_management_and_compliance-results"]/li'.</msg>
+<status status="PASS" starttime="20240319 17:12:07.912" endtime="20240319 17:12:07.969"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:09.970" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240319 17:12:07.969" endtime="20240319 17:12:09.970"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:59.799" endtime="20240319 17:12:09.970"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:12.970" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240319 17:12:09.970" endtime="20240319 17:12:12.970"/>
+</kw>
+<kw name="Add Solution Identification" library="Keywords_AddForm">
+<arg>${Compliance_Form_SolutionName}</arg>
+<arg>${Compliance_Form_SoftwareRelease}</arg>
+<arg>${Compliance_Form_VendorName}</arg>
+<arg>${Compliance_Form_SolutionType}</arg>
+<arg>${Compliance_Form_Hosting}</arg>
+<arg>${Compliance_Form_ServerHost}</arg>
+<arg>${Compliance_Form_SolutionClasification}</arg>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${txt_SolutionName}</arg>
+<arg>${Compliance_SolutionName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:12.970" level="INFO">Typing text 'Solution Test' into text field 'id:id_solution_name'.</msg>
+<status status="PASS" starttime="20240319 17:12:12.970" endtime="20240319 17:12:13.094"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${txt_SoftawareRelease}</arg>
+<arg>${Compliance_SoftwareRelease}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:13.094" level="INFO">Typing text 'SoftwareRelease Test' into text field 'id:id_solution_version'.</msg>
+<status status="PASS" starttime="20240319 17:12:13.094" endtime="20240319 17:12:13.232"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${txt_VendorName}</arg>
+<arg>${Compliance_VendorName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:13.232" level="INFO">Typing text 'VendorName Test' into text field 'id:id_vendor_name'.</msg>
+<status status="PASS" starttime="20240319 17:12:13.232" endtime="20240319 17:12:13.350"/>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<arg>${dropDown_SolutionType}</arg>
+<arg>${Compliance_SolutionType}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20240319 17:12:13.350" level="INFO">Selecting options from selection list 'id:id_solution_type' by label Application.</msg>
+<status status="PASS" starttime="20240319 17:12:13.350" endtime="20240319 17:12:13.443"/>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<arg>${dropDown_HostingandType}</arg>
+<arg>${Compliance_Hosting}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20240319 17:12:13.444" level="INFO">Selecting options from selection list 'id_hosting_and_type' by label Third Party Hosting.</msg>
+<status status="PASS" starttime="20240319 17:12:13.443" endtime="20240319 17:12:13.512"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${txt_ServerHost}</arg>
+<arg>${Compliance_ServerHost}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:13.512" level="INFO">Typing text 'Server Host Test' into text field 'id:id_server_host'.</msg>
+<status status="PASS" starttime="20240319 17:12:13.512" endtime="20240319 17:12:13.630"/>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<arg>${dropDown_SolutionClasification}</arg>
+<arg>${Compliance_Classification}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20240319 17:12:13.630" level="INFO">Selecting options from selection list 'id:id_solution_classification' by label Configurable.</msg>
+<status status="PASS" starttime="20240319 17:12:13.630" endtime="20240319 17:12:13.709"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>${btn_CCAForm_Save}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240319 17:12:13.709" level="INFO">Clicking button 'name:_save'.</msg>
+<status status="PASS" starttime="20240319 17:12:13.709" endtime="20240319 17:12:14.572"/>
+</kw>
+<status status="PASS" starttime="20240319 17:12:12.970" endtime="20240319 17:12:14.572"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240319 17:12:17.573" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240319 17:12:14.572" endtime="20240319 17:12:17.573"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:55.180" endtime="20240319 17:12:17.573"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:55.180" endtime="20240319 17:12:17.573"/>
+</iter>
+<status status="PASS" starttime="20240319 17:11:55.180" endtime="20240319 17:12:17.573"/>
+</for>
+<status status="PASS" starttime="20240319 17:11:55.180" endtime="20240319 17:12:17.573"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240319 17:12:17.573" endtime="20240319 17:12:19.924"/>
+</kw>
+<status status="PASS" starttime="20240319 17:11:44.492" endtime="20240319 17:12:19.924"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="AddForms">AddForms</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
